@@ -16,7 +16,6 @@ const port: number | string = process.env.PORT || 3000;
 
 //Cấu hình file tĩnh
 app.use(express.static("public"));
-
 //Cấu hình file tĩnh
 
 // Pug
