@@ -112,7 +112,7 @@ export const like = async (req: Request, res: Response) => {
       );
     }
 
-    console.log(newLike);
+    // console.log(newLike);
 
     res.json({
       code: 200,
