@@ -65,15 +65,59 @@ export const detail = async (req: Request, res: Response) => {
       _id: song.topicId,
     });
 
-    console.log(song);
-    console.log(singer);
-    console.log(topic);
-
     res.render("client/pages/songs/detail", {
       pageTitle: "Danh sách bài hát",
       song: song,
       topic: topic,
       singer: singer,
+    });
+  } catch (error) {
+    res.send("404");
+  }
+};
+
+// [PATCH] /songs/:typeLike/:songId
+export const like = async (req: Request, res: Response) => {
+  try {
+    const songId = req.params.songId;
+    const typeLike = req.params.typeLike;
+
+    const song = await Song.findOne({
+      _id: songId,
+      deleted: false,
+      status: "active",
+    });
+
+    let newLike;
+
+    if (typeLike == "like") {
+      newLike = song.like + 1;
+      await Song.updateOne(
+        {
+          _id: songId,
+        },
+        {
+          like: newLike,
+        }
+      );
+    } else {
+      newLike = song.like - 1;
+      await Song.updateOne(
+        {
+          _id: songId,
+        },
+        {
+          like: newLike,
+        }
+      );
+    }
+
+    console.log(newLike);
+
+    res.json({
+      code: 200,
+      message: "Thành công",
+      newLike: newLike,
     });
   } catch (error) {
     res.send("404");

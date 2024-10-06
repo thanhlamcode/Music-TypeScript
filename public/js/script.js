@@ -30,3 +30,31 @@ if (aplayer) {
 }
 
 // End APlayer
+
+// Like
+const buttonLike = document.querySelector(".singer-detail .inner-like");
+console.log(buttonLike);
+if (buttonLike) {
+  buttonLike.addEventListener("click", () => {
+    buttonLike.classList.toggle("active");
+    const isActive = buttonLike.classList.contains("active");
+    const typeLike = isActive ? "like" : "dislike";
+    const songId = buttonLike.getAttribute("id-song");
+    console.log(typeLike, songId);
+
+    const link = `/songs/${typeLike}/${songId}`;
+    // Fetch dữ liệu
+
+    fetch(link, { method: "PATCH" })
+      .then((res) => res.json())
+      .then((data) => {
+        const p = buttonLike.querySelector("p");
+
+        const content = `${data.newLike} thích`;
+
+        p.innerHTML = content;
+      });
+  });
+}
+
+// End Like
