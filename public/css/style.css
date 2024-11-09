@@ -101,7 +101,6 @@
   white-space: pre-wrap; /* Bọc văn bản */
   overflow: hidden; /* Ẩn phần tràn */
   text-overflow: ellipsis; /* Thêm dấu "..." khi văn bản tràn */
-  -webkit-line-clamp: 1; /* Hiển thị tối đa 1 dòng */
   -webkit-box-orient: vertical;
   display: -webkit-box;
   margin-bottom: 5px;
@@ -313,37 +312,40 @@ li.dropdown:hover .dropdown-menu {
 
 /* END DROPDOWN */
 
-/* LOGIN */
-/* Đặt chiều rộng và căn giữa form đăng nhập */
+/* LOGIN AND REGISTER */
+/* Căn chỉnh form ở giữa trang cho cả đăng nhập và đăng ký */
 .login-container.center {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .login-form {
   width: 100%;
   max-width: 400px;
-  padding: 50px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .login-form .logo {
-  width: 100px;
+  width: 80px;
   margin-bottom: 20px;
 }
 
 .login-form h2 {
   font-size: 1.2rem;
-  color: #333;
+  color: #666;
+  margin-bottom: 5px;
 }
 
 .login-form h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #333;
   margin: 10px 0 30px;
@@ -358,20 +360,29 @@ li.dropdown:hover .dropdown-menu {
 .form-group label {
   font-size: 0.9rem;
   color: #666;
+  font-weight: 500;
 }
 
 input[type="email"],
+input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 10px 40px 10px 10px;
+  padding: 10px;
+  padding-left: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
+  font-size: 1rem;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
 }
 
 input[type="email"]:focus,
+input[type="text"]:focus,
 input[type="password"]:focus {
   border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
 }
 
 .form-group i {
@@ -384,20 +395,27 @@ input[type="password"]:focus {
 
 .btn-signup {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
   margin-top: 20px;
+}
+
+.btn-signup:hover {
+  background-color: #0056b3;
 }
 
 .or-signup-with {
   margin: 20px 0;
-  text-align: center;
   color: #666;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .social-icons {
@@ -409,6 +427,11 @@ input[type="password"]:focus {
 .social-icon i {
   font-size: 1.5rem;
   color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-icon i:hover {
+  color: #007bff;
 }
 
 .already-account {
@@ -419,6 +442,208 @@ input[type="password"]:focus {
 .already-account a {
   color: #007bff;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* END LOGIN */
+.already-account a:hover {
+  color: #0056b3;
+}
+
+/* Header */
+.header {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.header .inner-logo img {
+  width: 125px;
+  max-width: 100%;
+}
+
+.header .inner-menu > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.header .inner-menu > ul > li {
+  margin-left: 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+}
+
+/* Card */
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Song Item */
+.song-item {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.song-item .inner-image {
+  width: 115px;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.song-item .inner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.song-item .inner-content {
+  padding: 10px;
+  flex: 1;
+}
+
+.song-item .inner-content .inner-title {
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  margin-bottom: 5px;
+}
+
+/* Detail Song */
+.singer-detail {
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.inner-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff9900;
+  margin-bottom: 10px;
+}
+
+.inner-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.inner-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #ff9900;
+  animation: rotate 5s linear infinite;
+}
+
+.inner-desc {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.inner-label {
+  font-weight: bold;
+  color: #ff9900;
+  margin-bottom: 5px;
+}
+
+.inner-text {
+  font-size: 14px;
+  color: #666;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dropdown */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+li.dropdown a {
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  color: #333;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-menu li a {
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ddd;
+}
+
+li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.register-container.center {
+  display: flex;
+  justify-content: center;
+}
+
+/* END LOGIN AND REGISTER */
