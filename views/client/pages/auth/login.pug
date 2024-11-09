@@ -1,0 +1,33 @@
+//- Kế thừa layout chính
+extends ../../layout/default.pug
+
+//- Khối nội dung chính
+block main
+  .login-container.center
+    .login-form
+      img.logo(src="/images/logo.png" alt="InsideBox Logo")
+      h1 Sign in
+      
+      form(method="POST" action="/auth/login")
+        .form-group
+          label(for="email") E-mail
+          input#email(type="email" name="email" placeholder="example@email.com" required)
+        
+        .form-group
+          label(for="password") Password
+          input#password(type="password" name="password" placeholder="Password" required)
+
+        button.btn-signup(type="submit") Sign Up
+
+        .or-signup-with
+          p or sign up with
+          .social-icons
+            a(href="/auth/facebook").social-icon
+              i.fa-brands.fa-facebook
+            a(href="/auth/google").social-icon
+              i.fa-brands.fa-google
+            a(href="/auth/apple").social-icon
+              i.fa-brands.fa-apple
+      
+      .already-account
+        a(href="/auth/register") Have an account? Sign in
