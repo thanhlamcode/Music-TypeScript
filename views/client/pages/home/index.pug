@@ -1,0 +1,60 @@
+extends ../../layout/default.pug
+include ../../mixins/box-head.pug
+
+block style
+  link(rel="stylesheet", href="/css/homepage.css")
+
+block main
+  .main-container.d-flex
+    // Sidebar section
+    .sidebar.bg-dark.text-white.p-3
+      h2 Thư viện
+      button.btn.btn-primary.mt-3 Tạo danh sách phát
+      p.mt-2 Rất dễ! Chúng tôi sẽ giúp bạn
+      button.btn.btn-secondary.mt-4 Duyệt xem podcast
+      p.mt-2 Chúng tôi sẽ cập nhật cho bạn thông tin về các tập mới
+      
+      .footer.mt-auto.pt-3
+        a.text-white(href="#") Pháp lý
+        a.text-white.ml-3(href="#") Chính sách quyền riêng tư
+        a.text-white.ml-3(href="#") Cookie
+        a.text-white.ml-3(href="#") Giới thiệu Quảng cáo
+        a.text-white.ml-3(href="#") Hỗ trợ tiếp cận
+
+    // Main Content area
+    .main-content.flex-grow-1.p-4
+      header.d-flex.justify-content-between.align-items-center.mb-4
+        input.form-control.search-input(type="text" placeholder="Bạn muốn phát nội dung gì?")
+        .d-flex
+          button.btn.btn-outline-primary.mr-2 Đăng ký
+          button.btn.btn-primary Đăng nhập
+
+      section.top-charts
+        h3.mb-3 Bảng xếp hạng Nổi bật
+        .d-flex.flex-wrap
+          .card.chart-card.m-2
+            img.card-img-top(src="https://via.placeholder.com/150" alt="Top Chart")
+            .card-body
+              h5.card-title Top Bài Hát Toàn Cầu
+              p.card-text Thông tin cập nhật hàng tuần về những...
+
+          .card.chart-card.m-2
+            img.card-img-top(src="https://via.placeholder.com/150" alt="Top Chart")
+            .card-body
+              h5.card-title Top Bài Hát Hoa Kỳ
+              p.card-text Thông tin cập nhật hàng tuần về những...
+
+      section.playlists
+        h3.mb-3 Playlists from our Editors
+        .d-flex.flex-wrap
+          .card.playlist-card.m-2
+            img.card-img-top(src="https://via.placeholder.com/150" alt="Playlist Cover")
+            .card-body
+              h5.card-title Today's Top Hits
+              p.card-text The hottest 50. Cover: Gracie Abrams
+
+          .card.playlist-card.m-2
+            img.card-img-top(src="https://via.placeholder.com/150" alt="Playlist Cover")
+            .card-body
+              h5.card-title Phonk
+              p.card-text The beat of your drift
